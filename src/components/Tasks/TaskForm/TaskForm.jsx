@@ -14,8 +14,10 @@ const TaskForm = ({ setTasks }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTasks((prevTasks) => [...prevTasks, taskData]);
-    setTaskData({ propertyName: "", group: "Exited" });
+    if (taskData.propertyName) {
+      setTasks((prevTasks) => [...prevTasks, taskData]);
+      setTaskData({ propertyName: "", group: "Exited" });
+    }
   };
 
   return (
